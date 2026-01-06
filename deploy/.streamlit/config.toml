@@ -1,0 +1,7 @@
+[theme]
+base="light"
+primaryColor="#005AA3"           # Azul Cielo (aprox.)
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F5F7FB"
+textColor="#0B1F35"
+font="sans serif"
