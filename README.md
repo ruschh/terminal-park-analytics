@@ -13,27 +13,26 @@ End-to-end exploratory data analysis and interactive dashboard for monitoring te
 root/
 │
 ├── data/
-│   ├── dados_siteticos.py                  # Código que gera a base de dados sintética
-│   ├── tb_parque_terminais.csv             # Data frame contendo o parque de terminais da empresa
-│   ├── tb_chamados.csv                     # Data frame contendo os chamados técnicos    
-│   └── tb_transacoes.csv                   # Data frame contendo as transações 
+│   ├── dados_siteticos.py                  # Code that generates the synthetic database
+│   ├── tb_parque_terminais.csv             # Data frame containing the company's terminal park
+│   ├── tb_chamados.csv                     # Data frame containing the technical support calls
+│   └── tb_transacoes.csv                   # Data frame containing the transactions 
 │
 ├── notebooks/
-│   └── 01_eda.ipynb                        # Análise Exploratória de Dados (EDA)
+│   └── 01_eda.ipynb                        # Exploratory Data Analisys (EDA)
 │
 ├── src/
 │   ├── __init__.py
-│   └── 02_eda.py                           # Análise Exploratória de Dados (EDA)
+│   └── 01_eda.py                           # Exploratory Data Analisys (EDA)
 │
 ├── dashboard/
-│   ├── app.py               # Aplicação Streamlit
-│   └── components/          # Componentes reutilizáveis do dashboard
+│   └── app.py               # Streamlit application
 │
 ├── reports/
-│   └── figures/             # Gráficos exportados
+│   └── figures/             # Exported figures
 │
-├── requirements.txt         # Dependências do projeto
-├── README.md                # Documentação principal (este arquivo)
+├── requirements.txt         
+├── README.md                
 └── .gitignore
 ```
 
