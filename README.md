@@ -1,15 +1,15 @@
-# Painel de monitoramento do Terminal Park
+# Terminal Park Monitoring Dashboard
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Pandas](https://img.shields.io/badge/pandas-data%20analysis-green)
 ![Streamlit](https://img.shields.io/badge/streamlit-dashboard-red)
 ![Status](https://img.shields.io/badge/status-completed-success)
 
-## Breve descrição
-End-to-end Análise exploratória de dados e painel interativo para monitoramento do uso do terminal, confiabilidade operacional e priorização dentro do parque de terminais.
+## Short Description
+End-to-end exploratory data analysis and interactive dashboard for monitoring terminal usage, operational reliability, and prioritization within the terminal park.
 
-# Estrutura de diretórios
-
+# Directories strutucters
+```text
 root/
 │
 ├── data/
@@ -35,138 +35,141 @@ root/
 ├── requirements.txt         # Dependências do projeto
 ├── README.md                # Documentação principal (este arquivo)
 └── .gitignore
-
-
-
-# Desafio 2 — Monitoramento do Parque de Terminais
-
-## 1. Visão Geral do Projeto
-
-O objetivo central é transformar dados operacionais brutos em **insights acionáveis**, capazes de apoiar decisões estratégicas relacionadas a:
-- Uso e disponibilidade dos terminais,
-- Confiabilidade operacional,
-- Priorização de ações corretivas,
-- Observabilidade contínua do parque instalado.
-
-A solução foi concebida seguindo princípios de **Data Analytics end-to-end**, integrando EDA, definição de métricas, visualização e narrativa de negócio.
+```
 
 ---
 
-## 2. Objetivos Analíticos
+## 1. Project Overview
 
-Os principais objetivos deste projeto são:
+This project was developed as part of **Challenge 2** in a technical assessment context related to **:contentReference[oaicite:0]{index=0}**, focusing on data-driven monitoring of the installed terminal park.
 
-- Avaliar o **nível de utilização dos terminais** ao longo do tempo;
-- Identificar **terminais inativos ou com baixa recorrência de transações**;
-- Medir **indicadores de confiabilidade operacional**, como atrasos e indisponibilidades;
-- Fornecer **subsídios analíticos para priorização operacional**, orientando ações de manutenção, substituição ou reconfiguração;
-- Criar um **dashboard executivo e operacional**, com filtros globais e métricas claras.
+The primary objective is to transform raw operational data into **actionable insights** that support strategic and operational decision-making, particularly in areas such as:
+- Terminal usage and availability
+- Operational reliability
+- Incident resolution efficiency
+- Data-driven prioritization of corrective actions
+- Continuous observability through dashboards
 
----
-
-## 3. Dados Utilizados
-
-Os dados analisados contemplam, de forma integrada:
-
-- **Parque de terminais**: identificação do terminal, modelo, segmento e setor do cliente;
-- **Transações**: registros de transações com timestamp, terminal associado e volume;
-- **Chamados técnicos**: datas de abertura e fechamento, permitindo cálculo de tempos de resolução.
-
-Todos os dados passaram por etapas de:
-- Padronização de tipos,
-- Tratamento de datas,
-- Validação de chaves,
-- Remoção de inconsistências lógicas.
+The solution follows an **end-to-end analytics approach**, integrating Exploratory Data Analysis (EDA), KPI definition, and interactive visualization.
 
 ---
 
-## 4. Análise Exploratória de Dados (EDA)
+## 2. Analytical Objectives
 
-A EDA foi estruturada para responder perguntas de negócio concretas, indo além de estatísticas descritivas básicas.
+The main analytical goals of this project are:
 
-### 4.1 Utilização dos Terminais
-
-Foi identificada uma **distribuição altamente heterogênea de uso**, com:
-- Um pequeno grupo de terminais concentrando grande parte das transações;
-- Uma fração relevante do parque apresentando **baixa ou nenhuma atividade** em janelas prolongadas de tempo.
-
-Esse padrão sugere oportunidades claras de:
-- Otimização do parque instalado,
-- Realocação de ativos,
-- Revisão de contratos e estratégias comerciais.
+- Assess terminal usage patterns over time
+- Identify inactive or underutilized terminals
+- Measure operational reliability through incident and resolution metrics
+- Support operational prioritization using data-driven rankings
+- Deliver an executive-ready and operational dashboard with global filters
 
 ---
 
-### 4.2 Inatividade e Atrasos Operacionais
+## 3. Data Sources
 
-A análise temporal revelou:
-- Terminais sem registro de transações por períodos superiores a 48 horas;
-- Padrões recorrentes de inatividade associados a determinados modelos ou segmentos.
+The analysis integrates multiple operational datasets, including:
 
-Esses achados indicam potenciais falhas de:
-- Conectividade,
-- Configuração,
-- Aderência do terminal ao perfil do cliente.
+- **Terminal Park Data**: terminal identifiers, models, client segments, and business sectors
+- **Transaction Data**: transactional activity with timestamps and terminal associations
+- **Technical Incidents**: opening and closing dates of service calls, enabling resolution-time analysis
 
----
-
-### 4.3 Confiabilidade e Chamados Técnicos
-
-A partir dos dados de chamados, foi calculado o **tempo de resolução em dias**, revelando que:
-- A maioria dos chamados é resolvida em curto prazo;
-- Existe uma cauda longa de casos com **resolução significativamente mais lenta**, impactando diretamente a disponibilidade dos terminais.
-
-Esse comportamento reforça a importância de **monitoramento contínuo** e **priorizaçãoHook dinâmica de atendimento**.
+All datasets undergo:
+- Data type standardization
+- Date parsing and validation
+- Key consistency checks
+- Logical integrity validation
 
 ---
 
-## 5. Principais Insights Extraídos
+## 4. Exploratory Data Analysis (EDA)
 
-Os principais insights consolidados da EDA são:
+The EDA was designed to answer concrete business questions rather than purely descriptive statistics.
 
-1. **Concentração de uso**: grande parte do volume transacional está concentrada em poucos terminais.
-2. **Ociosidade estrutural**: há um percentual relevante do parque subutilizado.
-3. **Risco operacional silencioso**: terminais inativos nem sempre geram chamados, mas impactam receita.
-4. **Assimetria na resolução de chamados**: poucos casos críticos afetam significativamente a média.
-5. **Potencial de priorização baseada em dados**: combinação de uso, inatividade e chamados permite rankeamento operacional.
+### 4.1 Terminal Usage Patterns
 
----
+The analysis reveals a **highly heterogeneous usage distribution**, where:
+- A relatively small subset of terminals concentrates a significant share of transaction volume
+- A non-negligible portion of the terminal park shows **low or no activity** over extended periods
 
-## 6. Dashboard Interativo
-
-O dashboard foi desenvolvido em **Streamlit**, estruturado em cinco abas principais:
-
-- **Visão Geral**: KPIs globais do parque;
-- **Uso**: métricas de transações e atividade;
-- **Confiabilidade**: análise de chamados e tempos de resolução;
-- **Priorização**: ranking de terminais críticos;
-- **Observabilidade**: visão integrada para acompanhamento contínuo.
-
-Filtros globais permitem segmentação por data, modelo, setor e segmento de cliente.
+This pattern highlights clear opportunities for:
+- Asset optimization
+- Terminal reallocation
+- Contract and commercial strategy review
 
 ---
 
-## 7. Tecnologias Utilizadas
+### 4.2 Inactivity and Operational Delays
 
-- Python 3.x
-- Pandas, NumPy
+Temporal analysis identified:
+- Terminals without recorded transactions for periods exceeding 48 hours
+- Recurrent inactivity patterns associated with specific terminal models or client segments
+
+These findings may indicate issues related to:
+- Connectivity
+- Configuration
+- Mismatch between terminal profile and client needs
+
+---
+
+### 4.3 Operational Reliability and Incident Resolution
+
+Using incident data, the **resolution time (in days)** was computed, revealing:
+- Most incidents are resolved within short timeframes
+- A long-tail distribution of cases with significantly delayed resolution
+
+Although infrequent, these critical cases have a disproportionate impact on terminal availability and operational efficiency.
+
+---
+
+## 5. Key Insights
+
+The main insights consolidated from the EDA are:
+
+1. **Usage concentration**: Transaction volume is heavily concentrated in a limited subset of terminals
+2. **Structural underutilization**: A relevant fraction of the terminal park is persistently underused
+3. **Silent operational risk**: Inactive terminals do not always trigger incidents but may directly impact revenue
+4. **Asymmetric incident resolution**: Few critical incidents dominate average resolution metrics
+5. **Data-driven prioritization potential**: Combining usage, inactivity, and incident data enables effective operational ranking
+
+---
+
+## 6. Interactive Dashboard
+
+The dashboard was developed using **Streamlit** and is structured into five main sections:
+
+- **Overview**: Global KPIs of the terminal park
+- **Usage**: Transactional activity and usage metrics
+- **Reliability**: Incident analysis and resolution times
+- **Prioritization**: Ranking of critical terminals
+- **Observability**: Integrated monitoring view for continuous follow-up
+
+Global filters allow segmentation by date, terminal model, client sector, and segment.
+
+---
+
+## 7. Technology Stack
+
+- Python 3.9+
+- Pandas
+- NumPy
 - Plotly
 - Streamlit
 - Jupyter Notebook
 
 ---
 
-## 8. Próximos Passos
+## 8. Future Enhancements
 
-Como extensões naturais do projeto, destacam-se:
-- Aplicação de modelos de **anomaly detection** para identificar comportamentos atípicos;
-- Construção de **scores de risco operacional**;
-- Integração com pipelines automatizados (ETL/ELT);
-- Monitoramento em tempo real com alertas.
+Potential next steps include:
+- Anomaly detection models for early identification of abnormal behavior
+- Operational risk scoring frameworks
+- Integration with automated ETL/ELT pipelines
+- Real-time monitoring and alerting mechanisms
 
 ---
 
-## 9. Autor
+## 9. Author
 
-Projeto desenvolvido por **Dr. Flavio Rusch**, no contexto de um desafio técnico voltado à análise de dados e monitoramento operacional.
+Developed by **Flavio Rusch** as part of a technical challenge focused on data analytics and operational monitoring.
 
